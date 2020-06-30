@@ -89,10 +89,12 @@ const checkWin = () => {
         alert("Player 1 won!");
         cleanBoard();
         printBoard();
+        return;
       } else {
         alert("Player 2 won!");
         cleanBoard();
         printBoard();
+        return;
       }
     }
   });

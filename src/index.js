@@ -104,17 +104,16 @@ const checkWin = () => {
 };
 
 const printBoard = () => {
-  let board = "<table class=table>";
+  let board = "<table id='board'>";
   let x = 0;
   for (let i = 0; i < boardArr.length; i++) {
     board += "<tr>";
     for (let j = 0; j < boardArr[i].length; j++) {
       let id = x;
       board +=
-        `<td id=${id} width=70px height=70px> 
-                <p style='text-align:center; font-size:22px;'>` +
+        `<td id=${id}> ` +
         boardArr[i][j] +
-        "</p> </td>";
+        "</td>";
       x++;
     }
     board += "</tr>";

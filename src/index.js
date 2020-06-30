@@ -104,7 +104,7 @@ const checkWin = () => {
 };
 
 const printBoard = () => {
-  let board = "<table border=1>";
+  let board = "<table class=table>";
   let x = 0;
   for (let i = 0; i < boardArr.length; i++) {
     board += "<tr>";

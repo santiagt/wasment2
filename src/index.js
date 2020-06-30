@@ -1,5 +1,7 @@
 import "./styles.css";
 let boardArr = [];
+let color1 = [];
+let color2 = [];
 let player = "X";
 
 const cleanBoard = () => {
@@ -10,6 +12,8 @@ const cleanBoard = () => {
     ["", "", "", "", ""],
     ["", "", "", "", ""]
   ];
+  color1 = [];
+  color2 = [];
 };
 
 cleanBoard();
@@ -52,13 +56,16 @@ document.addEventListener("click", event => {
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
     let pos = event.target.id;
+    player === "X" ? color1.push(pos) : color2.push(pos);
     console.log(pos);
     playTurn(pos, player);
     printBoard();
+    colorBoard();
     checkWin();
     switchPlayer();
   }
 });
+
 
 const allEqual = arr => arr.every(v => v === arr[0] && v !== "");
 
@@ -109,6 +116,15 @@ const checkWin = () => {
   }
 };
 
+const colorBoard = () => {
+  color1.forEach(cell => {
+    document.getElementById(cell).style.backgroundColor = "rgb(124, 252, 0)";
+  });
+  color2.forEach(cell => {
+    document.getElementById(cell).style.backgroundColor = "rgb(250, 128, 114)";
+  })
+}
+
 const printBoard = () => {
   let board = "<table id='board'>";
   let x = 0;
@@ -126,6 +142,7 @@ const printBoard = () => {
   }
   board += "</table>";
   document.getElementById("board").innerHTML = board;
+  
 };
 
 printBoard();

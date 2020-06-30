@@ -84,21 +84,24 @@ const checkWin = () => {
   let combo = horarr.concat(boardArr).concat(diagon);
 
   combo.forEach(line => {
+    let winner = false;
     if (allEqual(line)) {
       if (line[0] === "X") {
         alert("Player 1 won!");
+        winner = true;
         cleanBoard();
         printBoard();
-        return;
+        
       } else {
         alert("Player 2 won!");
+        winner = true;
         cleanBoard();
         printBoard();
-        return;
+       
       }
     }
   });
-  if (!boardPlain.includes("")) {
+  if (!boardPlain.includes("") && !winner) {
     alert("It's a tie!");
     cleanBoard();
     printBoard();

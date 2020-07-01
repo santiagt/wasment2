@@ -133,6 +133,7 @@ const checkWin = () => {
 
 const timer = () => {
   let current;
+  gameOver = false;
   
   document.getElementById("play").style.display = "none";
   let clock = setInterval(() => {

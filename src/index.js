@@ -120,7 +120,7 @@ const checkWin = () => {
 const timer = () => {
 
   document.getElementById("bar").innerHTML = `
-  <div class="w3-border">
+  <div class="w3-border" style="width:300px">
   <div class="w3-red" style="height:20px;width:${counter}%"></div>
   </div>
   <p> Player ${player} turn.</p>`;

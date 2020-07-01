@@ -3,6 +3,7 @@ let boardArr = [];
 let color1 = [];
 let color2 = [];
 let player = "X";
+let counter = 0;
 
 const cleanBoard = () => {
   boardArr = [
@@ -116,14 +117,30 @@ const checkWin = () => {
   }
 };
 
+const timer = () => {
+
+  document.getElementById("bar").innerHTML = `
+  <div class="w3-border">
+  <div class="w3-red" style="height:20px;width:${counter}%"></div>
+  </div>
+  <p> Player ${player} turn.</p>`;
+
+  if (counter === 100) {
+      switchPlayer();
+      counter = 0;
+  } else {
+    counter =+ 10;
+  };
+};
+
 const colorBoard = () => {
   color1.forEach(cell => {
     document.getElementById(cell).style.backgroundColor = "rgb(124, 252, 0)";
   });
   color2.forEach(cell => {
     document.getElementById(cell).style.backgroundColor = "rgb(250, 128, 114)";
-  })
-}
+  });
+};
 
 const printBoard = () => {
   let board = "<table id='board'>";
@@ -137,12 +154,14 @@ const printBoard = () => {
         boardArr[i][j] +
         "</td>";
       x++;
-    }
+    };
     board += "</tr>";
-  }
+  };
   board += "</table>";
   document.getElementById("board").innerHTML = board;
   
 };
 
 printBoard();
+
+setInterval(timer(), 1000);

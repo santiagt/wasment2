@@ -44,9 +44,10 @@ const playTurn = (cell, mark) => {
   if (row > -1 && boardArr[row][col] === "") {
     boardArr[row][col] = mark;
     mark === "X" ? color1.push(cell) : color2.push(cell);
+    return true;
+  } else {
+    return false;
   }
-  console.log(mark);
-  console.log(boardArr);
 };
 
 const switchPlayer = () => {
@@ -58,14 +59,16 @@ document.addEventListener("click", event => {
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
     let pos = event.target.id;
-    
     console.log(pos);
-    playTurn(pos, player);
-    printBoard();
-    colorBoard();
-    checkWin();
-    switchPlayer();
-    counter = 0;
+    let valid = playTurn(pos, player);
+    if (valid) {
+      printBoard();
+      colorBoard();
+      checkWin();
+      switchPlayer();
+      counter = 0;
+    }
+    
   } else if (event.target instanceof HTMLButtonElement) {
     event.preventDefault();
     timer();

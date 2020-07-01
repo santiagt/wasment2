@@ -105,7 +105,7 @@ const checkWin = () => {
         winner = true;
         cleanBoard();
         printBoard();
-        clearInterval(clock);
+        counter = -1;
         return;
         
       } else {
@@ -113,7 +113,7 @@ const checkWin = () => {
         winner = true;
         cleanBoard();
         printBoard();
-        clearInterval(clock);
+        counter = -1;
         return;
       }
     }
@@ -122,23 +122,25 @@ const checkWin = () => {
     alert("It's a tie!");
     cleanBoard();
     printBoard();
-    clearInterval(clock);
+    counter = -1;
   }
 };
 
 const timer = () => {
-
-  document.getElementById("turn").innerHTML = `
-  <p> Player ${player} turn.</p>`;
-  document.getElementById("bar").style.width = counter + "%";
-  
-  if (counter === 100) {
+  let clock = setInterval(() => {
+    document.getElementById("bar").style.width = counter + "%";
+    document.getElementById("turn").innerHTML = `<p>Player ${player} turn.</p>`;
+    if (counter === 100) {
       switchPlayer();
       counter = 0;
+  } else if (counter === -1) {
+    clearInterval(clock);
   } else {
-    counter =+ 10;
+    counter += 10;
   };
   console.log(counter);
+  }, 1000);
+  
 };
 
 const colorBoard = () => {

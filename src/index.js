@@ -64,6 +64,7 @@ document.addEventListener("click", event => {
     colorBoard();
     checkWin();
     switchPlayer();
+    counter = 0;
   } else if (event.target instanceof HTMLButtonElement) {
     event.preventDefault();
     let clock = setInterval(timer(), 1000);

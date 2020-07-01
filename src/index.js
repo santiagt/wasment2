@@ -124,13 +124,14 @@ const timer = () => {
   <div class="w3-red" style="height:20px;width:${counter}%"></div>
   </div>
   <p> Player ${player} turn.</p>`;
-
+  
   if (counter === 100) {
       switchPlayer();
       counter = 0;
   } else {
     counter =+ 10;
   };
+  console.log(counter);
 };
 
 const colorBoard = () => {

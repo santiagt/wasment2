@@ -43,6 +43,7 @@ const playTurn = (cell, mark) => {
 
   if (row > -1 && boardArr[row][col] === "") {
     boardArr[row][col] = mark;
+    mark === "X" ? color1.push(cell) : color2.push(cell);
   }
   console.log(mark);
   console.log(boardArr);
@@ -57,7 +58,7 @@ document.addEventListener("click", event => {
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
     let pos = event.target.id;
-    player === "X" ? color1.push(pos) : color2.push(pos);
+    
     console.log(pos);
     playTurn(pos, player);
     printBoard();

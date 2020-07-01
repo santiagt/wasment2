@@ -99,6 +99,7 @@ const checkWin = () => {
         winner = true;
         cleanBoard();
         printBoard();
+        clearInterval(clock);
         return;
         
       } else {
@@ -106,6 +107,7 @@ const checkWin = () => {
         winner = true;
         cleanBoard();
         printBoard();
+        clearInterval(clock);
         return;
       }
     }
@@ -114,6 +116,7 @@ const checkWin = () => {
     alert("It's a tie!");
     cleanBoard();
     printBoard();
+    clearInterval(clock);
   }
 };
 
@@ -142,7 +145,7 @@ const colorBoard = () => {
 };
 
 const startGame = () => {
-  setInterval(timer(), 1000);
+  let clock = setInterval(timer(), 1000);
 }
 
 const printBoard = () => {

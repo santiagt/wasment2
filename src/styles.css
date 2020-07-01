@@ -4,6 +4,7 @@ body {
 
 #progress {
   width: 300px;
+  border: 1px;
 }
 
 #bar {

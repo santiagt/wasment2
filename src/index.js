@@ -106,6 +106,7 @@ const checkWin = () => {
         cleanBoard();
         printBoard();
         counter = -1;
+        showButton();
         return;
         
       } else {
@@ -114,6 +115,7 @@ const checkWin = () => {
         cleanBoard();
         printBoard();
         counter = -1;
+        showButton();
         return;
       }
     }
@@ -123,12 +125,15 @@ const checkWin = () => {
     cleanBoard();
     printBoard();
     counter = -1;
+    showButton();
   }
 };
 
 const timer = () => {
   let current;
+  document.getElementById("play").style.display = "none";
   let clock = setInterval(() => {
+
     document.getElementById("bar").style.width = counter + "%";
     player === "X" ? current = "1" : current = "2";
     document.getElementById("turn").innerHTML = `<p>Player ${current} turn.</p>`;
@@ -142,8 +147,11 @@ const timer = () => {
   };
   console.log(counter);
   }, 1000);
-  
 };
+
+const showButton = () => {
+  document.getElementById("play").style.display = "block";
+}
 
 const colorBoard = () => {
   color1.forEach(cell => {

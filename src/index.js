@@ -134,12 +134,14 @@ const checkWin = () => {
 
 const timer = () => {
   let current;
+  
   document.getElementById("play").style.display = "none";
   let clock = setInterval(() => {
 
     document.getElementById("bar").style.width = counter + "%";
     player === "X" ? current = "1" : current = "2";
     document.getElementById("turn").innerHTML = `<p>Player ${current} turn.</p>`;
+    console.log(counter);
     if (counter === 100) {
       switchPlayer();
       counter = 0;

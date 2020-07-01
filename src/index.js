@@ -141,6 +141,10 @@ const colorBoard = () => {
   });
 };
 
+const startGame = () => {
+  setInterval(timer(), 1000);
+}
+
 const printBoard = () => {
   let board = "<table id='board'>";
   let x = 0;
@@ -163,4 +167,4 @@ const printBoard = () => {
 
 printBoard();
 
-setInterval(timer(), 1000);
+

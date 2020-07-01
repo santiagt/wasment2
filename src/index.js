@@ -4,6 +4,7 @@ let color1 = [];
 let color2 = [];
 let player = "X";
 let counter = 0;
+let gameOn = false;
 let gameOver = false;
 
 const cleanBoard = () => {
@@ -59,16 +60,19 @@ document.addEventListener("click", event => {
   console.log(event.target.type);
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
-    let pos = event.target.id;
-    console.log(pos);
-    let valid = playTurn(pos, player);
-    if (valid) {
-      printBoard();
-      colorBoard();
-      checkWin();
-      switchPlayer();
-      counter = 0;
+    if (gameOn) {
+      let pos = event.target.id;
+      console.log(pos);
+      let valid = playTurn(pos, player);
+      if (valid) {
+        printBoard();
+        colorBoard();
+        checkWin();
+        switchPlayer();
+        counter = 0;
+      }
     }
+    
     
   } else if (event.target instanceof HTMLButtonElement) {
     event.preventDefault();
@@ -134,6 +138,7 @@ const checkWin = () => {
 const timer = () => {
   let current;
   gameOver = false;
+  gameOn = true;
   
   document.getElementById("play").style.display = "none";
   let clock = setInterval(() => {
@@ -143,6 +148,7 @@ const timer = () => {
 
     if (gameOver) {
       showButton();
+      gameOn = false;
       clearInterval(clock);
     }
       if (counter === 100) {

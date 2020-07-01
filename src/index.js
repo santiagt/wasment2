@@ -119,11 +119,9 @@ const checkWin = () => {
 
 const timer = () => {
 
-  document.getElementById("bar").innerHTML = `
-  <div class="w3-border" style="width:300px">
-  <div class="w3-red" style="height:20px;width:${counter}%"></div>
-  </div>
+  document.getElementById("turn").innerHTML = `
   <p> Player ${player} turn.</p>`;
+  document.getElementById("bar").style.width = counter + "%";
   
   if (counter === 100) {
       switchPlayer();

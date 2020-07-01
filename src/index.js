@@ -68,7 +68,7 @@ document.addEventListener("click", event => {
     counter = 0;
   } else if (event.target instanceof HTMLButtonElement) {
     event.preventDefault();
-    let clock = setInterval(timer(), 1000);
+    timer();
   }
 
 });

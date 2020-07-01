@@ -64,7 +64,11 @@ document.addEventListener("click", event => {
     colorBoard();
     checkWin();
     switchPlayer();
+  } else if (event.target instanceof HTMLButtonElement) {
+    event.preventDefault();
+    let clock = setInterval(timer(), 1000);
   }
+
 });
 
 
@@ -143,10 +147,6 @@ const colorBoard = () => {
     document.getElementById(cell).style.backgroundColor = "rgb(250, 128, 114)";
   });
 };
-
-const startGame = () => {
-  let clock = setInterval(timer(), 1000);
-}
 
 const printBoard = () => {
   let board = "<table id='board'>";

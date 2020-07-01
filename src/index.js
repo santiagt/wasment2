@@ -110,7 +110,6 @@ const checkWin = () => {
         cleanBoard();
         printBoard();
         gameOver = true;
-        showButton();
         return;
         
       } else {
@@ -119,7 +118,6 @@ const checkWin = () => {
         cleanBoard();
         printBoard();
         gameOver = true;
-        showButton();
         return;
       }
     }
@@ -129,7 +127,7 @@ const checkWin = () => {
     cleanBoard();
     printBoard();
     gameOver = true;
-    showButton();
+   
   }
 };
 
@@ -142,8 +140,11 @@ const timer = () => {
     player === "X" ? current = "1" : current = "2";
     document.getElementById("turn").innerHTML = `<p>Player ${current} turn.</p>`;
 
-    if (gameOver) clearInterval(clock);
-    if (counter === 100) {
+    if (gameOver) {
+      showButton();
+      clearInterval(clock);
+    }
+      if (counter === 100) {
       switchPlayer();
       counter = 0;
   } else {

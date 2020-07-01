@@ -4,6 +4,7 @@ let color1 = [];
 let color2 = [];
 let player = "X";
 let counter = 0;
+let gameOver = false;
 
 const cleanBoard = () => {
   boardArr = [
@@ -108,7 +109,7 @@ const checkWin = () => {
         winner = true;
         cleanBoard();
         printBoard();
-        counter = -1;
+        gameOver = true;
         showButton();
         return;
         
@@ -117,7 +118,7 @@ const checkWin = () => {
         winner = true;
         cleanBoard();
         printBoard();
-        counter = -1;
+        gameOver = true;
         showButton();
         return;
       }
@@ -127,7 +128,7 @@ const checkWin = () => {
     alert("It's a tie!");
     cleanBoard();
     printBoard();
-    counter = -1;
+    gameOver = true;
     showButton();
   }
 };
@@ -137,16 +138,14 @@ const timer = () => {
   
   document.getElementById("play").style.display = "none";
   let clock = setInterval(() => {
-
     document.getElementById("bar").style.width = counter + "%";
     player === "X" ? current = "1" : current = "2";
     document.getElementById("turn").innerHTML = `<p>Player ${current} turn.</p>`;
-    console.log(counter);
+
+    if (gameOver) clearInterval(clock);
     if (counter === 100) {
       switchPlayer();
       counter = 0;
-  } else if (counter === -1) {
-    clearInterval(clock);
   } else {
     counter += 10;
   };

@@ -137,8 +137,7 @@ const timer = () => {
     document.getElementById("turn").innerHTML = `<p>Player ${current} turn.</p>`;
 
     if (gameOver) {
-      clearInterval(clock);
-      timer();
+      //clearInterval(clock);
     }
       if (counter === 100) {
       switchPlayer();

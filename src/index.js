@@ -131,7 +131,6 @@ const timer = () => {
   let current;
   gameOver = false;
   
-  document.getElementById("play").style.display = "none";
   let clock = setInterval(() => {
     document.getElementById("bar").style.width = counter + "%";
     player === "X" ? current = "1" : current = "2";
@@ -179,12 +178,8 @@ const printBoard = () => {
   
 };
 
-window.addEventListener('readystatechange', (event) => {
-  console.log("timer on;")
-  timer();
-})
-
 printBoard();
+timer();
 
 
 

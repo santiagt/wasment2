@@ -138,6 +138,7 @@ const timer = () => {
 
     if (gameOver) {
       clearInterval(clock);
+      timer();
     }
       if (counter === 100) {
       switchPlayer();

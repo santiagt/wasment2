@@ -17,8 +17,8 @@ body {
 }
 #board td {
   border: 1px solid black;
-  width: 60px;
-  height: 60px;
+  width: 61px;
+  height: 61px;
   text-align: center;
   font-size: 30px;
 }

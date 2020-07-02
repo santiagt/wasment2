@@ -69,16 +69,9 @@ document.addEventListener("click", event => {
       checkWin();
       switchPlayer();
       counter = 0;
-    
     }
-    
-    
-  } else if (event.target instanceof HTMLButtonElement) {
-    event.preventDefault();
-    timer();
   }
-
-});
+  });
 
 
 const allEqual = arr => arr.every(v => v === arr[0] && v !== "");
@@ -186,7 +179,8 @@ const printBoard = () => {
   
 };
 
-window.addEventListener("load", (event) => {
+window.addEventListener('readystatechange', (event) => {
+  console.log("timer on;")
   timer();
 })
 

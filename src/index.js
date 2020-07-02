@@ -186,6 +186,10 @@ const printBoard = () => {
   
 };
 
+window.addEventListener("load", (event) => {
+  timer();
+})
+
 printBoard();
 
 
